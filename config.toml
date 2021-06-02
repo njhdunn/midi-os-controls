@@ -1,0 +1,130 @@
+[[program]]
+channel = 0
+name = "Bank 1"
+
+slider = [{control = 23, name = "Volume 1", msg_type = "control_change", action = "pulse_volume"},
+		  {control = 24, name = "Volume 2", msg_type = "control_change", action = "pulse_volume"},
+		  {control = 25, name = "", msg_type = "control_change", action = ""},
+		  {control = 26, name = "", msg_type = "control_change", action = ""},
+		  {control = 27, name = "", msg_type = "control_change", action = ""},
+		  {control = 28, name = "", msg_type = "control_change", action = ""},
+		  {control = 29, name = "", msg_type = "control_change", action = ""},
+		  {control = 30, name = "", msg_type = "control_change", action = ""},
+		  {control = 31, name = "", msg_type = "control_change", action = ""},
+		  {control = 9, name  = "", msg_type = "control_change", action = ""}]
+
+toggle = [{control = 32, name = "Mute 1", msg_type = "control_change", action = "pulse_mute"},
+ 		  {control = 33, name = "", msg_type = "control_change", action = ""},
+ 		  {control = 34, name = "", msg_type = "control_change", action = ""},
+ 		  {control = 35, name = "", msg_type = "control_change", action = ""},
+ 		  {control = 36, name = "", msg_type = "control_change", action = ""},
+ 		  {control = 37, name = "", msg_type = "control_change", action = ""},
+ 		  {control = 38, name = "", msg_type = "control_change", action = ""},
+ 		  {control = 39, name = "", msg_type = "control_change", action = ""},
+ 		  {control = 40, name = "", msg_type = "control_change", action = ""}]
+
+dial = [{control = 14, name = "Volume 1", msg_type = "control_change", action = "pulse_volume"},
+		{control = 15, name = "", msg_type = "control_change", action = ""},
+		{control = 16, name = "", msg_type = "control_change", action = ""},
+		{control = 17, name = "", msg_type = "control_change", action = ""},
+		{control = 18, name = "", msg_type = "control_change", action = ""},
+		{control = 19, name = "", msg_type = "control_change", action = ""},
+		{control = 20, name = "", msg_type = "control_change", action = ""},
+		{control = 21, name = "", msg_type = "control_change", action = ""},
+		{control = 22, name = "", msg_type = "control_change", action = ""}]
+
+
+button = [{control = 1, name = "Volume 1", msg_type = "control_change", action = "pulse_volume"},
+	      {control = 2, name = "Volume 2", msg_type = "control_change", action = "pulse_volume"},
+ 		  {control = 64, name = "Volume 2", msg_type = "control_change", action = "pulse_volume"},
+ 		  {control = 67, name = "Volume 2", msg_type = "control_change", action = "pulse_volume"}]
+
+
+[[program]]
+channel = 1
+name = "Bank 2"
+
+slider = [{control = 23, name = "Volume 1", msg_type = "control_change", action = "pulse_volume"},
+		 		   {control = 24, name = "Volume 2", msg_type = "control_change", action = "pulse_volume"},
+		 		   {control = 25, name = "", msg_type = "control_change", action = ""},
+		 		   {control = 26, name = "", msg_type = "control_change", action = ""},
+		 		   {control = 27, name = "", msg_type = "control_change", action = ""},
+		 		   {control = 28, name = "", msg_type = "control_change", action = ""},
+		 		   {control = 29, name = "", msg_type = "control_change", action = ""},
+		 		   {control = 30, name = "", msg_type = "control_change", action = ""},
+		 		   {control = 31, name = "", msg_type = "control_change", action = ""},
+		 		   {control = 9, name  = "", msg_type = "control_change", action = ""}]
+
+toggle = [{control = 32, name = "Mute 1", msg_type = "control_change", action = "pulse_mute"},
+ 				   {control = 33, name = "Mute 2", msg_type = "control_change", action = "pulse_mute"}]
+
+dial = [{control = 32, name = "Volume 1", msg_type = "control_change", action = "pulse_volume"},
+ 				 {control = 33, name = "Volume 2", msg_type = "control_change", action = "pulse_volume"}]
+
+button = [{control = 1, name = "Volume 1", msg_type = "control_change", action = "pulse_volume"},
+ 				   {control = 2, name = "Volume 2", msg_type = "control_change", action = "pulse_volume"},
+ 				   {control = 64, name = "Volume 2", msg_type = "control_change", action = "pulse_volume"},
+ 				   {control = 67, name = "Volume 2", msg_type = "control_change", action = "pulse_volume"}]
+
+
+#[[program]]
+#channel = 1
+#name = "Bank 2"
+#
+############ Sliders ############
+#[[program.slider]]
+#control = 23
+#name = "Volume 1"
+#msg_type = "control_change"
+#action = "pulse_volume"
+#
+#[[program.slider]]
+#control = 24
+#name = "Volume 2"
+#msg_type = "control_change"
+#action = "pulse_volume"
+#
+#
+############ Toggles ############
+#[[program.toggle]]
+#control = 32
+#name = "Mute 1"
+#msg_type = "control_change"
+#action = "pulse_mute"
+#
+#
+############ Dials ############
+#[[program.dial]]
+#control = 14
+#name = "Dial 1"
+#msg_type = "control_change"
+#action = "pulse_volume"
+#
+############ Buttons ############
+#[[program.button]]
+#control = 1
+#name = "Button 1"
+#msg_type = "control_change"
+#action = "pulse_mute"
+
+
+#[toggles]
+#indices = [32, 33, 34, 35, 36, 37, 38, 39, 40]
+#
+#[toggle.1]
+#control = 32
+#name = "Mute 1"
+#msg_type = "control_change"
+#action = "pulse_mute"
+#
+#[dials]
+#indices = [14, 15, 16, 17, 18, 19, 20, 21, 22]
+#
+#[dial.1]
+#control = 14
+#name = "Dial 1"
+#msg_type = "control_change"
+#action = "pulse_volume"
+
+
+
