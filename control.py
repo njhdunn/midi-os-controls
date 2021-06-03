@@ -3,7 +3,7 @@
 import mido
 import pulsectl
 import toml
-import tkinter as tk
+import wx
 
 INTERFACES = ['button', 'slider', 'toggle', 'dial']
 
@@ -84,11 +84,11 @@ class MidiDevice:
 
 	_listener = None
 
-	def __init__(self, tk_parent, config_file="config.toml", name=None):
+	def __init__(self, wx_parent, config_file="config.toml", name=None):
 		self._name = name
 		self._read_config(config_file)
 		self._desktop = DesktopControl()
-		self._tk_parent = tk_parent
+		self._wx_parent = wx_parent
 
 		self._port = None
 		self._listening_on = None
@@ -129,77 +129,108 @@ class MidiDevice:
 			for control in program:
 				print(program[control])
 
-	def stop_listening(self):
-		self._tk_parent.after_cancel(self._listener)
 
 	def listen(self):
+		self.need_abort = 0
 
-		if not self._port:
-			self._port = mido.open_input(self._name)
-		
-		# We rename the device if it gets a new input, so if the current
-		# name doesn't match the name of the port we're listening on, we
-		# need to stop listening on the old port and start on the new one
-		elif self._name != self._listening_on.name:
-			self.stop_listening()
-			self._port = mido.open_input(self._name)
+		while True:
+			wx.Yield()
 
-		for message in self._port.iter_pending():
-			action = self._get_action(message.control)
-			self._send_action_to_desktop(action, message.value)
+			if self.need_abort == 1:
+				break
+	
+			if not self._port:
+				self._port = mido.open_input(self._name)
+			
+			# We rename the device if it gets a new input, so if the current
+			# name doesn't match the name of the port we're listening on, we
+			# need to stop listening on the old port and start on the new one
+			elif self._name != self._listening_on.name:
+				self._port.close()
+				self._port = mido.open_input(self._name)
+	
+			for message in self._port.iter_pending():
+				action = self._get_action(message.control)
+				self._send_action_to_desktop(action, message.value)
+	
+			self._listening_on = self._port
 
-		self._listener = self._tk_parent.after(5, self.listen)
-		self._listening_on = self._port
+ID_START = wx.NewId()
+ID_STOP = wx.NewId()
 
-class MidiSelect(tk.Frame):
-	def __init__(self, parent, *args, **kwargs):
-		tk.Frame.__init__(self, parent, *args, **kwargs)
+class MidiSelect(wx.Frame):
+	def __init__(self, parent, title=""):
+		wx.Frame.__init__(self, parent, title=title, size=(200,100))
 
-		inputs = mido.get_input_names()
-		
-		self.midi_input = tk.StringVar(self)
-		self.midi_input.set(inputs[0])
-
-		self.w = tk.OptionMenu(self, self.midi_input, *inputs)
-		self.w.pack()
-
-		self.ok = tk.Button(self, text="Start", command=self.ok)
-		self.ok.pack()
-
-		self.stop = tk.Button(self, text="Stop", command=self.stop)
-		self.stop.pack()
-
-		self.device = MidiDevice(tk_parent=self)
+		self.device = MidiDevice(wx_parent = self)
 		self.device.summarize()
 
+		# Set up combobox and two buttons
+		inputs = mido.get_input_names()
+		self.midiselect = wx.ComboBox(parent, choices = inputs, style = wx.CB_READONLY)
 
-	def ok(self):
-		midi_name = self.midi_input.get()
+		self.start = wx.Button(parent, ID_START, 'Start', pos=(100, 50))
+		self.stop = wx.Button(parent, ID_STOP, 'Stop', pos=(0, 50))
 
+		self.midiselect.Bind(wx.EVT_COMBOBOX, self.OnCombo, self.midiselect)
+		self.start.Bind(wx.EVT_BUTTON, self.OnStart, self.start)
+		self.stop.Bind(wx.EVT_BUTTON, self.OnStop, self.stop)
+
+	def OnCombo(self, e):
+		midi_name = self.midiselect.GetValue()
 		print("value is:" + midi_name)
-
 		self.device.set_name(midi_name)
+	
+	def OnStart(self, e):
 		self.device.listen()
 
-	def stop(self):
-		self.device.stop_listening()
+	def OnStop(self, e):
+		self.device.need_abort = 1
 
-class MainApplication(tk.Frame):
-	def __init__(self, parent, *args, **kwargs):
-		tk.Frame.__init__(self, parent, *args, **kwargs)
+class MainApplication(wx.Frame):
+	def __init__(self, parent, title):
+		wx.Frame.__init__(self, parent, title=title, size=(600,800))
 
 		self.midiselect = MidiSelect(self)
 
-		self.close = tk.Button(self, text="Close", command=parent.destroy)
+		self.CreateStatusBar()
+		
+		# Set up the menu
+		filemenu = wx.Menu()
+		# Add standard about & exit menu items
+		menuAbout = filemenu.Append(wx.ID_ABOUT, "&About", "Information about this program")
+		filemenu.AppendSeparator()
+		menuExit = filemenu.Append(wx.ID_EXIT, "&Exit", "Terminate the program")
 
-		self.midiselect.pack()
-		self.close.pack()
+		# Create the menubar
+		menuBar = wx.MenuBar()
+		menuBar.Append(filemenu, "&File")
+		self.SetMenuBar(menuBar)
+
+		# Set events
+		self.Bind(wx.EVT_MENU, self.OnAbout, menuAbout)
+		self.Bind(wx.EVT_MENU, self.OnExit, menuExit)
+
+		self.Show(True)
+
+	def OnAbout(self, e):
+		# A message dialog box with an OK button
+		dlg = wx.MessageDialog(self, "A small text editor", "About Sample Editor", wx.OK)
+		dlg.ShowModal()
+		dlg.Destroy()
+
+	def OnExit(self, e):
+		self.midiselect.device.need_abort = 1
+		self.Close(True)
 
 
 if __name__ == "__main__":
-    root = tk.Tk()
-    MainApplication(root).pack(side="top", fill="both", expand=True)
-    root.mainloop()
+#    root = tk.Tk()
+#    MainApplication(root).pack(side="top", fill="both", expand=True)
+#    root.mainloop()
+	app = wx.App(False)
+	frame = MainApplication(None, "Sample editor")
+	app.MainLoop()
 
 
 #worlde_board = MidiDevice(name=inputs[1])

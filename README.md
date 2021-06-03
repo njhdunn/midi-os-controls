@@ -3,14 +3,16 @@ Use a MIDI controller to change various settings in the OS, such as volume mixin
 # Initial to-do:
 
 - [x]	Test basic procedure for using midi device to change volume
-- [ ]	Create layout file format / reader for assigning functions to mini ports
-- [ ]	Create GUI that displays current config, and saves changes to file
-- [ ]	Screen brightness functionality
-- [ ]	Screen warmth functionality
-- [ ]	Media scrubber
-- [ ]	Document scroller
-- [ ]	Document/page zoomer
-- [ ]	Media keys mapping
+- [x]   Switch proof-of-concept UI to wxPython
+- [x]	Create layout file format / reader for assigning functions to mini ports
+- [ ]	Create GUI that displays current config, allows for changing settings, and saves changes to the config file
+- [ ]	Volume/mute actions
+- [ ]	Screen brightness action
+- [ ]	Screen warmth action
+- [ ]	Media scrubber action
+- [ ]	Document scroller action
+- [ ]	Document/page zoomer action
+- [ ]	Media keys mapping action
 
 # Config File Format
 
