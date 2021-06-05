@@ -1,0 +1,43 @@
+name = "WORLDE easy control"
+channels = 4
+dscription = "WORLDE easy control / pmidip30 with fixed control IDs"
+
+slider = [{control = 23, msg_type = "control_change"},
+		  {control = 24, msg_type = "control_change"},
+		  {control = 25, msg_type = "control_change"},
+		  {control = 26, msg_type = "control_change"},
+		  {control = 27, msg_type = "control_change"},
+		  {control = 28, msg_type = "control_change"},
+		  {control = 29, msg_type = "control_change"},
+		  {control = 30, msg_type = "control_change"},
+		  {control = 31, msg_type = "control_change"},
+		  {control = 9,  msg_type = "control_change"}]
+
+toggle = [{control = 32, msg_type = "control_change"},
+ 		  {control = 33, msg_type = "control_change"},
+ 		  {control = 34, msg_type = "control_change"},
+ 		  {control = 35, msg_type = "control_change"},
+ 		  {control = 36, msg_type = "control_change"},
+ 		  {control = 37, msg_type = "control_change"},
+ 		  {control = 38, msg_type = "control_change"},
+ 		  {control = 39, msg_type = "control_change"},
+ 		  {control = 40, msg_type = "control_change"}]
+
+dial = [{control = 14, msg_type = "control_change"},
+		{control = 15, msg_type = "control_change"},
+		{control = 16, msg_type = "control_change"},
+		{control = 17, msg_type = "control_change"},
+		{control = 18, msg_type = "control_change"},
+		{control = 19, msg_type = "control_change"},
+		{control = 20, msg_type = "control_change"},
+		{control = 21, msg_type = "control_change"},
+		{control = 22, msg_type = "control_change"}]
+
+# The silver dial on the upper left of the board doesn't have a control ID,
+# and only ever outputs to Channel 0 regardless of the active bank
+fixed_dial = [{control = "", msg_type = "program_change"}]
+
+button = [{control = 1,  msg_type = "control_change"},
+	      {control = 2,  msg_type = "control_change"},
+ 		  {control = 64, msg_type = "control_change"},
+ 		  {control = 67, msg_type = "control_change"}]

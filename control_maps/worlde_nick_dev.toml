@@ -1,0 +1,171 @@
+device = "WORLDE easy control"
+
+[[program]]
+channel = 0
+name = "Bank 1"
+
+slider = [{control = 23, name = "Volume 1", action = "pulse_volume"},
+		  {control = 24, name = "Volume 2", action = "pulse_volume"},
+		  {control = 25, name = "", action = ""},
+		  {control = 26, name = "", action = ""},
+		  {control = 27, name = "", action = ""},
+		  {control = 28, name = "", action = ""},
+		  {control = 29, name = "", action = ""},
+		  {control = 30, name = "", action = ""},
+		  {control = 31, name = "", action = ""},
+		  {control = 9,  name = "", action = ""}]
+
+toggle = [{control = 32, name = "Mute 1", action = "pulse_mute"},
+ 		  {control = 33, name = "", action = ""},
+ 		  {control = 34, name = "", action = ""},
+ 		  {control = 35, name = "", action = ""},
+ 		  {control = 36, name = "", action = ""},
+ 		  {control = 37, name = "", action = ""},
+ 		  {control = 38, name = "", action = ""},
+ 		  {control = 39, name = "", action = ""},
+ 		  {control = 40, name = "", action = ""}]
+
+dial = [{control = 14, name = "Volume 1", action = "pulse_volume"},
+		{control = 15, name = "", action = ""},
+		{control = 16, name = "", action = ""},
+		{control = 17, name = "", action = ""},
+		{control = 18, name = "", action = ""},
+		{control = 19, name = "", action = ""},
+		{control = 20, name = "", action = ""},
+		{control = 21, name = "", action = ""},
+		{control = 22, name = "", action = ""}]
+
+fixed_dial = [{control = "", name = "", action = ""}]
+
+button = [{control = 1,  name = "Mute 1", action = "pulse_mute"},
+	      {control = 2,  name = "", action = ""},
+ 		  {control = 64, name = "", action = ""},
+ 		  {control = 67, name = "", action = ""}]
+
+
+[[program]]
+channel = 1
+name = "Bank 2"
+
+slider = [{control = 23, name = "Volume 1", action = "pulse_volume"},
+		  {control = 24, name = "Volume 2", action = "pulse_volume"},
+		  {control = 25, name = "", action = ""},
+		  {control = 26, name = "", action = ""},
+		  {control = 27, name = "", action = ""},
+		  {control = 28, name = "", action = ""},
+		  {control = 29, name = "", action = ""},
+		  {control = 30, name = "", action = ""},
+		  {control = 31, name = "", action = ""},
+		  {control = 9,  name = "", action = ""}]
+
+toggle = [{control = 32, name = "Mute 1", action = "pulse_mute"},
+ 		  {control = 33, name = "", action = ""},
+ 		  {control = 34, name = "", action = ""},
+ 		  {control = 35, name = "", action = ""},
+ 		  {control = 36, name = "", action = ""},
+ 		  {control = 37, name = "", action = ""},
+ 		  {control = 38, name = "", action = ""},
+ 		  {control = 39, name = "", action = ""},
+ 		  {control = 40, name = "", action = ""}]
+
+dial = [{control = 14, name = "Volume 1", action = "pulse_volume"},
+		{control = 15, name = "", action = ""},
+		{control = 16, name = "", action = ""},
+		{control = 17, name = "", action = ""},
+		{control = 18, name = "", action = ""},
+		{control = 19, name = "", action = ""},
+		{control = 20, name = "", action = ""},
+		{control = 21, name = "", action = ""},
+		{control = 22, name = "", action = ""}]
+
+fixed_dial = [{control = "", name = "", action = ""}]
+
+button = [{control = 1,  name = "Mute 1", action = "pulse_mute"},
+	      {control = 2,  name = "", action = ""},
+ 		  {control = 64, name = "", action = ""},
+ 		  {control = 67, name = "", action = ""}]
+
+[[program]]
+channel = 2
+name = "Bank 3"
+
+slider = [{control = 23, name = "Volume 1", action = "pulse_volume"},
+		  {control = 24, name = "Volume 2", action = "pulse_volume"},
+		  {control = 25, name = "", action = ""},
+		  {control = 26, name = "", action = ""},
+		  {control = 27, name = "", action = ""},
+		  {control = 28, name = "", action = ""},
+		  {control = 29, name = "", action = ""},
+		  {control = 30, name = "", action = ""},
+		  {control = 31, name = "", action = ""},
+		  {control = 9,  name = "", action = ""}]
+
+toggle = [{control = 32, name = "Mute 1", action = "pulse_mute"},
+ 		  {control = 33, name = "", action = ""},
+ 		  {control = 34, name = "", action = ""},
+ 		  {control = 35, name = "", action = ""},
+ 		  {control = 36, name = "", action = ""},
+ 		  {control = 37, name = "", action = ""},
+ 		  {control = 38, name = "", action = ""},
+ 		  {control = 39, name = "", action = ""},
+ 		  {control = 40, name = "", action = ""}]
+
+dial = [{control = 14, name = "Volume 1", action = "pulse_volume"},
+		{control = 15, name = "", action = ""},
+		{control = 16, name = "", action = ""},
+		{control = 17, name = "", action = ""},
+		{control = 18, name = "", action = ""},
+		{control = 19, name = "", action = ""},
+		{control = 20, name = "", action = ""},
+		{control = 21, name = "", action = ""},
+		{control = 22, name = "", action = ""}]
+
+fixed_dial = [{control = "", name = "", action = ""}]
+
+button = [{control = 1,  name = "Mute 1", action = "pulse_mute"},
+	      {control = 2,  name = "", action = ""},
+ 		  {control = 64, name = "", action = ""},
+ 		  {control = 67, name = "", action = ""}]
+
+
+[[program]]
+channel = 3
+name = "Bank 4"
+
+slider = [{control = 23, name = "Volume 1", action = "pulse_volume"},
+		  {control = 24, name = "Volume 2", action = "pulse_volume"},
+		  {control = 25, name = "", action = ""},
+		  {control = 26, name = "", action = ""},
+		  {control = 27, name = "", action = ""},
+		  {control = 28, name = "", action = ""},
+		  {control = 29, name = "", action = ""},
+		  {control = 30, name = "", action = ""},
+		  {control = 31, name = "", action = ""},
+		  {control = 9,  name = "", action = ""}]
+
+toggle = [{control = 32, name = "Mute 1", action = "pulse_mute"},
+ 		  {control = 33, name = "", action = ""},
+ 		  {control = 34, name = "", action = ""},
+ 		  {control = 35, name = "", action = ""},
+ 		  {control = 36, name = "", action = ""},
+ 		  {control = 37, name = "", action = ""},
+ 		  {control = 38, name = "", action = ""},
+ 		  {control = 39, name = "", action = ""},
+ 		  {control = 40, name = "", action = ""}]
+
+dial = [{control = 14, name = "Volume 1", action = "pulse_volume"},
+		{control = 15, name = "", action = ""},
+		{control = 16, name = "", action = ""},
+		{control = 17, name = "", action = ""},
+		{control = 18, name = "", action = ""},
+		{control = 19, name = "", action = ""},
+		{control = 20, name = "", action = ""},
+		{control = 21, name = "", action = ""},
+		{control = 22, name = "", action = ""}]
+
+fixed_dial = [{control = "", name = "", action = ""}]
+
+button = [{control = 1,  name = "Mute 1", action = "pulse_mute"},
+	      {control = 2,  name = "", action = ""},
+ 		  {control = 64, name = "", action = ""},
+ 		  {control = 67, name = "", action = ""}]
